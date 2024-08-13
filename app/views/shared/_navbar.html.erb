@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <div class="navbar__left">
+    <%= link_to root_path, class: "icon-link" do %>
+      <i class="fas fa-sliders-h"></i>
+    <% end %>
+  </div>
+
+  <div class="navbar__right">
+    <%= link_to "#", class: "profile-link" do %>
+      <%= image_tag("default-profile-picture.png", class: "profile-picture") %>
+    <% end %>
+  </div>
+</nav>
