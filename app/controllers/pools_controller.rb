@@ -6,6 +6,7 @@ class PoolsController < ApplicationController
 
   def show
     set_pool
+    @booking = Booking.new
   end
 
   private
