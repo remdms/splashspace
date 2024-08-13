@@ -7,6 +7,7 @@ class Pool < ApplicationRecord
   # on lie une picture Active Storage
   # has_one_attached :picture
   validates :address, presence: true
-  validates :name, presence: true
-  validates :price_per_day, presence: true
+  validates :name, presence: true, length: { maximum: 100 }
+  validates :price_per_day, presence: true, numericality: { greater_than: 0 }
+  validates :overview, length: { maximum: 1500 }
 end
