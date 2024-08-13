@@ -1,12 +1,29 @@
-.navbar-lewagon {
+.navbar {
+  display: flex;
   justify-content: space-between;
-  background: white;
-}
+  align-items: center;
+  padding: 10px 15px;
+  background-color: white;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  &__left {
+    .icon-link {
+      text-decoration: none;
+      font-size: 24px;
+      color: black;
+    }
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  &__right {
+    .profile-link {
+      display: inline-block;
+    }
+
+    .profile-picture {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+    }
+  }
 }
