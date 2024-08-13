@@ -3,4 +3,14 @@ class PoolsController < ApplicationController
   def index
     @pools = Pool.all
   end
+
+  def show
+    set_pool
+  end
+
+  private
+
+  def set_pool
+    @pool = Pool.find(params[:id])
+  end
 end
