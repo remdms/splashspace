@@ -1,0 +1,17 @@
+.footer {
+  background-color: rgb(255, 255, 255);
+  color: rgb(51, 51, 51);
+
+  a {
+    text-decoration: none;
+    color: rgb(51, 51, 51);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .lighter-color {
+    background-color: rgb(249, 249, 249);
+    font-size: 12px;
+    font-weight: lighter;
+  }
+}
