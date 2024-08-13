@@ -4,7 +4,6 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true, comparison: { greater_than: :start_date }
   validates :total_price, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates :confirmed, presence: true
   validate :no_overlapping_bookings
 
   private

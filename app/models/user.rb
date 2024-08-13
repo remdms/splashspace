@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :pools
   has_many :bookings
   validates :pseudo, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
-  validates :first_name, presence: true, format: { with: /\A[a-zA-Z\-]+\z/ } # Only allows letters and dashes
-  validates :last_name, presence: true, format: { with: /\A[a-zA-Z\-]+\z/ } # Only allows letters and dashes
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validate :first_name_and_last_name_must_be_different_from_pseudo
 
   private
