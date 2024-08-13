@@ -1,8 +1,31 @@
   <%= render 'shared/navbar' %>
 <!-- j'appelle la partial navbar-->
 
-<div class="container">
 
+<div class="front-picture-section">
+  <div class="front-picture-image">
+    <%= image_tag("default-front-picture.jpeg", class: "img-fluid") %>
+    <div class="explore-button">
+      <a href="<%= "#" %>" class="btn btn-dark btn-lg">Explore Pools</a>
+    </div>
+  </div>
+</div>
+
+<div class="little-index-section text-center">
+  <h1 class="little-index-title mb-0">S P L A S H S P A C E</h1>
+  <div class="little-index-subtitle">
+    Unwind, One Pool at a Time
+  </div>
+  <div class="little-index-filters">
+    <a href="#" class="little-index-filter">All</a>
+    <a href="#" class="little-index-filter">Iconic</a>
+    <a href="#" class="little-index-filter">Wow!</a>
+    <a href="#" class="little-index-filter">With a view</a>
+    <a href="#" class="little-index-filter">Trendy</a>
+  </div>
+</div>
+
+<div class="container">
 
 </div>
 
