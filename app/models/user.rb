@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validate :first_name_and_last_name_must_be_different_from_pseudo
+  has_one_attached :photo
 
   private
 
