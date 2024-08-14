@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 
+Booking.destroy_all
+
 Pool.destroy_all
 puts 'piscines détruits'
 
@@ -16,16 +18,56 @@ puts 'users bien détruits'
 users = []
 #   end
 puts "creating user"
-user1 = User.create!(first_name: "Paul", last_name: "Pivet", pseudo: "PP7", email: "exemple1@gmail.com", password: "exemple1")
+user1 = User.new(
+  first_name: "Paul",
+  last_name: "Pivet",
+  pseudo: "PP7",
+  email: "exemple1@gmail.com",
+  password: "exemple1"
+)
+file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723631883/Paul.jpg")
+
+user1.photo.attach(io: file, filename: "Paul.jpg", content_type: "image/jpg")
+user1.save
 users << user1
 
-user2 = User.create!(first_name: "Jeanne", last_name: "Boulanger", pseudo: "Jeanne.B", email: "exemple2@gmail.com", password: "exemple2")
+user2 = User.new(
+  first_name: "Jeanne",
+  last_name: "Boulanger",
+  pseudo: "Jeanne.B",
+  email: "exemple2@gmail.com",
+  password: "exemple2"
+)
+file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723632002/Jeanne.jpg")
+
+user2.photo.attach(io: file, filename: "Jeanne.jpg",content_type: "image/jpg")
+user2.save
 users << user2
 
-user3 = User.create!(first_name: "Marc", last_name: "Dupont", pseudo: "MarcDc", email: "exemple3@gmail.com", password: "exemple3")
+user3 = User.new(
+  first_name: "Marc",
+  last_name: "Dupont",
+  pseudo: "MarcDc",
+  email: "exemple3@gmail.com",
+  password: "exemple3"
+)
+file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723631942/Marc.jpg")
+
+user3.photo.attach(io: file, filename: "Marc.jpg",content_type: "image/jpg")
+user3.save!
 users << user3
 
-user4 = User.create!(first_name: "Sophie", last_name: "Leroy", pseudo: "SophieL", email: "exemple4@gmail.com", password: "exemple4")
+user4 = User.new(
+  first_name: "Sophie",
+  last_name: "Leroy",
+  pseudo: "SophieL",
+  email: "exemple4@gmail.com",
+  password: "exemple4"
+)
+file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723632044/sophie.jpg")
+
+user4.photo.attach(io: file, filename: "Sophie.jpg",content_type: "image/jpg")
+user4.save!
 users << user4
 
 # user5 = User.create!(first_name: "Pierre", last_name: "Martin", pseudo: "PierreM", email: "exemple1@gmail.com", password: "exemple1")
@@ -45,7 +87,6 @@ users << user4
 # user12 = User.create!(first_name: "Camille", last_name: "Garcia", pseudo: "CamilleG", email: "garcia@gmail.com", password: "123456")
 p User.all
 
-
 puts "creating pool"
 pool1 = Pool.new(
   name: "Crystal Lagoon Oasis",
@@ -58,7 +99,7 @@ pool1 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723555107/Crystal_Lagoon_Oasis.jpg")
 
 pool1.photo.attach(io: file, filename: "Crystal_Lagoon_Oasis.jpg", content_type: "image/jpg")
-pool1.save
+pool1.save!
 
 pool2 = Pool.new(
   name: "Le Bleu Paradis",
@@ -70,7 +111,7 @@ pool2 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723555191/Le_Bleu_Paradis.jpg")
 
 pool2.photo.attach(io: file, filename: "Le_Bleu_Paradis.jpg", content_type: "image/jpg")
-pool2.save
+pool2.save!
 
 pool3 = Pool.new(
   name: "L'Étang Émeraude",
@@ -83,7 +124,7 @@ pool3 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723557246/Etang_Emeraude.jpg")
 
 pool3.photo.attach(io: file, filename: "Etang_Emeraude.jpg", content_type: "image/jpg")
-pool3.save
+pool3.save!
 
 pool4 = Pool.new(
   name: "Les Bains d'Or",
@@ -95,7 +136,7 @@ pool4 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723557583/Bains_Or.jpg")
 
 pool4.photo.attach(io: file, filename: "Bains_Or.jpg", content_type: "image/jpg")
-pool4.save
+pool4.save!
 
 pool5 = Pool.new(
   name: "Le Bassin de Saphir",
@@ -108,7 +149,7 @@ pool5 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723557766/Bassin_Saphir.jpg")
 
 pool5.photo.attach(io: file, filename: "Bassin_Saphir.jpg", content_type: "image/jpg")
-pool5.save
+pool5.save!
 
 pool6 = Pool.new(
   name: "Château de L'Eau",
@@ -121,7 +162,7 @@ pool6 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723557955/Chateau_Eau.jpg")
 
 pool6.photo.attach(io: file, filename: "Bassin_Saphir.jpg", content_type: "image/jpg")
-pool6.save
+pool6.save!
 
 pool7 = Pool.new(
   name: "Palais Bleu",
@@ -134,7 +175,7 @@ pool7 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558127/Palais_Bleu.jpg")
 
 pool7.photo.attach(io: file, filename: "Palais_Bleu.jpg", content_type: "image/jpg")
-pool7.save
+pool7.save!
 
 pool8 = Pool.new(
   name: "Villa Émeraude",
@@ -147,7 +188,7 @@ pool8 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558382/Villa_Emeraude.jpg")
 
 pool8.photo.attach(io: file, filename: "Villa_Emeraude.jpg", content_type: "image/jpg")
-pool8.save
+pool8.save!
 
 pool9 = Pool.new(
   name: "Horizon d'Azur",
@@ -160,7 +201,7 @@ pool9 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558549/Horizon_Azur.jpg")
 
 pool9.photo.attach(io: file, filename: "Horizon_Azur.jpg", content_type: "image/jpg")
-pool9.save
+pool9.save!
 
 pool10 = Pool.new(
   name: "Villa de Sol azurée",
@@ -171,7 +212,7 @@ pool10 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558720/Villa_Sol_azuree.jpg")
 
 pool10.photo.attach(io: file, filename: "Villa_Sol_azuree.jpg", content_type: "image/jpg")
-pool10.save
+pool10.save!
 
 pool11 = Pool.new(
   name: "Oasis du Désert",
@@ -183,7 +224,7 @@ pool11 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558885/Oasis_Desert.jpg")
 
 pool11.photo.attach(io: file, filename: "Oasis_Desert.jpg", content_type: "image/jpg")
-pool11.save
+pool11.save!
 
 pool12 = Pool.new(
   name: "Crique Cachée",
@@ -194,6 +235,6 @@ pool12 = Pool.new(
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723559042/Crique_Cachee.jpg")
 
 pool12.photo.attach(io: file, filename: "Crique_Cachee.jpg", content_type: "image/jpg")
-pool12.save
+pool12.save!
 
 p Pool.all
