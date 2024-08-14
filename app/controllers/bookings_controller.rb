@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking.total_price = (@booking.end_date.day - @booking.start_date.day) * @booking.pool.price_per_day
     if @booking.save
       # TODO change path to user show
-      redirect_to pool_path(@pool)
+      redirect_to user_path(current_user)
     else
       render "pools/show", status: :unprocessable_entity
     end

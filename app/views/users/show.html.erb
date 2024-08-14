@@ -12,7 +12,12 @@
     <%# la classe booking de la div ci-dessous n'est pas encore définie en CSS %>
       <div class="booking m-auto">
         <h3><%= booking.pool.name %></h3>
-        <ul style="list-style-type: none">
+        <% if booking.pool.photo.attached? %>
+          <%= cl_image_tag booking.pool.photo.key, class:'img-fluid mx-auto my-3 rounded-5', width: '500', crop: :fill %>
+        <% else %>
+          <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto my-3 rounded-5', alt: "Pool picture", width: '500' %>
+        <% end %>
+        <ul style="list-style-type: none;padding-inline-start:0px;">
           <li>Status: <%= booking.status %></li>
           <li>Address: <%= booking.pool.address %></li>
           <li>Price: €<%= booking.total_price %></li>
@@ -46,7 +51,7 @@
     <% end %>
   </div>
   <h2>PROFILE</h2>
-  <ul style="list-style-type: none">
+  <ul style="list-style-type: none;padding-inline-start:0px;">
     <li>Pseudo: <%= @user.pseudo %></li>
     <li>First name: <%= @user.first_name %></li>
     <li>Last name: <%= @user.last_name %></li>
