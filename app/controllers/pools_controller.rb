@@ -1,11 +1,11 @@
 class PoolsController < ApplicationController
   # skip_before_action :authenticate_user!, only: :index
+  before_action :set_pool, only: [:show]
   def index
     @pools = Pool.all
   end
 
   def show
-    set_pool
     @booking = Booking.new
   end
 
