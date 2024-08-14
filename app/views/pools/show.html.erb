@@ -9,18 +9,22 @@
   <% end %>
 
   <h2 class="secondary-title"><%= @pool.name.upcase %></h2>
+  <hr>
   <p>Location: <%= @pool.address %></p>
   <p>Rating:</p>
   <p>Price: €<%= @pool.price_per_day %> per person per day</p>
-
-  <div class="booking-container">
-    <%# Formulaire non mis en forme, methode bookings#create non définie %>
-    <%= render 'pools/booking_form', pool: @pool, booking: @booking %>
-  </div>
-
   <h2 class="secondary-title mt-3">DESCRIPTION</h2>
   <hr>
   <p><%= @pool.overview %></p>
+
+  <div class="container-fluid border p-3 mb-2">
+    <div class="booking-card">
+    <%# Formulaire non mis en forme, methode bookings#create non définie %>
+    <%= render 'pools/booking_form', pool: @pool, booking: @booking %>
+    </div>
+  </div>
+
+
 
 
   <h2 class="secondary-title text-center">YOUR HOST</h2>
