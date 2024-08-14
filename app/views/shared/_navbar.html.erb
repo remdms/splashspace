@@ -1,12 +1,16 @@
-<nav class="navbar">
+<nav class="navbar sticky-top">
   <div class="navbar__left">
     <%= link_to root_path, class: "icon-link" do %>
       <i class="fas fa-sliders-h"></i>
     <% end %>
   </div>
 
+  <div class="navbar__center">
+    <%= link_to "SPLASHSPACE", root_path, class: "nav-title" %>
+  </div>
+
   <div class="navbar__right">
-    <%= link_to "#", class: "profile-link" do %>
+    <%= link_to user_path(current_user), class: "profile-link" do %>
       <%= image_tag("default-profile-picture.png", class: "profile-picture") %>
     <% end %>
   </div>
