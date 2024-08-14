@@ -1,0 +1,9 @@
+<%= simple_form_for pool do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :pool_type %>
+  <%= f.input :area, hint: 'In m²' %>
+  <%= f.input :price_per_day, hint: 'In €' %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, class: 'btn-outline-secondary' %>
+<% end %>

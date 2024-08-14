@@ -28,7 +28,13 @@
       </div>
     <% end %>
   </div>
-  <h2>MY POOLS</h2>
+
+  <div>
+    <h2 style='display:inline;'>MY POOLS</h2>
+    <%= link_to new_pool_path do %>
+      <h2 style='display:inline;color:black;'><i class="fa-solid fa-plus"></i></h2>
+    <% end %>
+  </div>
   <div class="d-flex flex-wrap">
     <% @user.pools.each do |pool| %>
       <div class="m-auto">

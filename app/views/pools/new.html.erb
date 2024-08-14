@@ -1,0 +1,11 @@
+<%= render 'shared/navbar' %>
+
+<div class="container-fluid mt-3">
+  <div class="d-flex justify-content-between mb-3">
+    <h2 class="flex-start">NEW POOL</h2>
+    <%= link_to request.referer do %>
+      <i class="fa-solid fa-xmark flex-end close-x-mark me-3"></i>
+    <% end %>
+  </div>
+  <%= render 'new_pool_form', pool: @pool %>
+</div>
