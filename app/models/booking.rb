@@ -6,6 +6,8 @@ class Booking < ApplicationRecord
   validates :total_price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validate :no_overlapping_bookings
 
+  STATUS = %w[pending accepted declined canceled]
+  
   private
 
   def no_overlapping_bookings
