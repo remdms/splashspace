@@ -22,18 +22,19 @@
   <hr>
   <p><%= @pool.overview %></p>
 
-  <p>Hosted by <%= @pool.user.first_name %></p>
 
   <h2 class="secondary-title text-center">YOUR HOST</h2>
+  <p class="text-center">Hosted by <%= @pool.user.first_name %></p>
 
-  <%# Si une photo de pool existe on l'affiche sinon on affiche le placeholder%>
-  <%# if @pool.user.profile_pic.attached? %>
-    <%# cl_image_tag @pool.user.profile_pic.key, class:'img-fluid mx-auto my-3', size: '164', crop: :fill %>
-  <%# else %>
-    <div class="user-pic-square mx-auto my-3">
-      <%= image_tag 'placeholder-image.jpg', class:'img-fluid', alt: "Pool picture" %>
-    </div>
-  <%# end %>
+  <%# Si une photo de user existe on l'affiche sinon on affiche le placeholder%>
+  <div class="owner user-pic-square mx-auto my-3">
+    <% if @pool.user.photo.attached? %>
+        <%= cl_image_tag @pool.user.photo.key, class:'img-fluid', size: '164', crop: :fill %>
+      <% else %>
+        <%= image_tag 'placeholder-image.jpg', class:'img-fluid', alt: "Pool picture" %>
+      <% end %>
+  </div>
+
 </div>
 
-<%# render footer %>
+<%= render 'shared/footer' %>
