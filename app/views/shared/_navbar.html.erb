@@ -10,7 +10,10 @@
   </div>
 
   <div class="navbar__right">
+    <% if user_signed_in? && current_user.user.photo.key.present? %>
     <%= link_to user_path(current_user), class: "profile-link" do %>
+      <%= cl_image_tag user.photo.key, class: "profile-picture" current_user.user.photo.key.present? %>
+    <% else %>
       <%= image_tag("default-profile-picture.png", class: "profile-picture") %>
     <% end %>
   </div>
