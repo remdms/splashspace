@@ -1,17 +1,19 @@
 <div class="pool-card">
-  <% if pool.photo.attached? %>
-    <%= cl_image_tag pool.photo.key, class:'img-fluid mx-auto', width: '500', crop: :fill %>
-  <% else %>
-    <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto', alt: "Pool picture", width: '500' %>
+  <%= link_to pool_path(pool), class:"text-decoration-none" do %>
+    <% if pool.photo.attached? %>
+      <%= cl_image_tag pool.photo.key, class:'img-fluid mx-auto', width: '500', crop: :fill %>
+    <% else %>
+      <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto', alt: "Pool picture", width: '500' %>
+    <% end %>
+    <div class="pool-details">
+      <h3><%= pool.name %></h3>
+      <p><%= pool.overview %></p>
+      <p class="price d-flex justify-content-end"><%= pool.price_per_day %>€ per day</p>
+      <%# <p class="swimmers">Pool Type: <%= pool.pool_type </p> %>
+      <%# <p class="address"><%= pool.address </p>
+      <%# <button class="save-button" data-pool-id="<%= pool.id %>
+        <%# <%= current_user.saved_pools.include?(pool) ? 'Saved' : 'Save' %>
+      <%# </button> %>
+    </div>
   <% end %>
-  <div class="pool-details">
-    <h3><%= pool.name %></h3>
-    <p><%= pool.overview %></p>
-    <p class="price d-flex justify-content-end"><%= pool.price_per_day %>$ per day</p>
-    <%# <p class="swimmers">Pool Type: <%= pool.pool_type </p> %>
-    <%# <p class="address"><%= pool.address </p>
-    <%# <button class="save-button" data-pool-id="<%= pool.id %>
-      <%# <%= current_user.saved_pools.include?(pool) ? 'Saved' : 'Save' %>
-    <%# </button> %>
-  </div>
 </div>
