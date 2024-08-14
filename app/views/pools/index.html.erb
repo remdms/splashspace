@@ -26,7 +26,12 @@
 </div>
 
 <div class="container">
-
+  <div class="pools-list">
+    <% @pools.each do |pool| %>
+      <%= render 'shared/pool-card', pool: pool %>
+    <% end %>
+  </div>
 </div>
+
 
 <%= render 'shared/footer' %>
