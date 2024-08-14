@@ -1,29 +1,46 @@
-<h2>Sign up</h2>
+<h2 class="auth-title">Register</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "auth-form" }) do |f| %>
+  <div class="form-group">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email", class: "form-control", placeholder: "Email Address" },
+                label: false %>
+  </div>
+  <div class="form-group">
     <%= f.input :pseudo,
-                required: true %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
+                required: true,
+                input_html: { class: "form-control", placeholder: "Username" },
+                label: false %>
+  </div>
+  <div class="form-group">
+    <%= f.input :first_name,
+                input_html: { class: "form-control", placeholder: "First Name" },
+                label: false %>
+  </div>
+  <div class="form-group">
+    <%= f.input :last_name,
+                input_html: { class: "form-control", placeholder: "Last Name" },
+                label: false %>
+  </div>
+  <div class="form-group">
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password", class: "form-control", placeholder: "Password" },
+                label: false %>
+  </div>
+  <div class="form-group">
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password", class: "form-control", placeholder: "Confirm Password" },
+                label: false %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="form-group">
+    <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "devise/shared/link-log-in" %>

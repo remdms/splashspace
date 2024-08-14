@@ -1,20 +1,35 @@
-<h2>Log in</h2>
+<h2 class="auth-title">Sign In</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "auth-form" }) do |f| %>
+  <div class="form-group">
     <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                input_html: { autocomplete: "email", class: "form-control", placeholder: "Email Address" },
+                label: false %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="form-group">
+    <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password", class: "form-control", placeholder: "Password" },
+                label: false %>
+  </div>
+
+  <div class="form-group text-center">
+    <%= render "devise/shared/forgot-your-password" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.button :submit, "Sign In", class: "btn btn-primary btn-block" %>
+  </div>
+
+  <div class="separator">OR</div>
+
+  <div class="social-login-buttons">
+    <%= button_tag "Sign In with Apple", class: "btn btn-outline-secondary btn-block", type: "button" %>
+    <%= button_tag "Sign In with Twitter", class: "btn btn-outline-secondary btn-block", type: "button" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "devise/shared/link-sign-up" %>

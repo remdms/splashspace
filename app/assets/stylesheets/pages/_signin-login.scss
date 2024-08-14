@@ -1,0 +1,73 @@
+.auth-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  height: 48px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.separator {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 14px;
+  color: #999;
+}
+
+.forgot-password-link {
+  color: #FF7F50; /* Vous pouvez ajuster cette couleur */
+  font-size: 14px;
+}
+
+.social-login-buttons .btn {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-login-buttons .btn-outline-secondary {
+  color: #333;
+  border-color: #ddd;
+  background-color: white;
+}
+
+.social-login-buttons .btn-outline-secondary i {
+  margin-right: 8px;
+}
+
+
+.devise-link {
+  display: block;
+  text-align: center;
+  color: #FF7F50; /* Vous pouvez ajuster la couleur pour correspondre à votre thème */
+  font-size: 14px;
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+.devise-link:hover {
+  text-decoration: underline;
+  color: #ff5733; /* Une version plus foncée de la couleur pour le hover */
+}
