@@ -79,3 +79,17 @@
   gap: 20px;
   padding: 5px;
 }
+
+#homepage-map {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#scrollable-section {
+  border-radius: 5px 5px 0 0;
+  border-top: 0.5rem solid lightgrey;
+  position: relative;
+  z-index: 2;
+  background-color: #f4f4f4;
+}
