@@ -94,7 +94,8 @@ pool1 = Pool.new(
   pool_type: "Salt",
   address: "30 rue voisin, 92600 Asnières, France",
   price_per_day: 120,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  area: 80
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723555107/Crystal_Lagoon_Oasis.jpg")
 
@@ -104,9 +105,10 @@ pool1.save!
 pool2 = Pool.new(
   name: "Le Bleu Paradis",
   overview: "A tranquil, azure-blue pool nestled within a secluded garden", pool_type: "Chlorine",
-  address: "12 rue de la Mer, 75008 Paris, France",
+  address: "12 Rue Jean Goujon, 75008 Paris, France",
   price_per_day: 90,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  area: 30
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723555191/Le_Bleu_Paradis.jpg")
 
@@ -119,7 +121,8 @@ pool3 = Pool.new(
   pool_type: "Salt",
   address: "8 chemin des Lavandes, 13100 Aix-en-Provence, France",
   price_per_day: 160,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  area: 36
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723557246/Etang_Emeraude.jpg")
 
@@ -131,7 +134,8 @@ pool4 = Pool.new(
   overview: "An opulent pool with golden mosaics and luxurious cabanas", pool_type: "Chlorine",
   address: "25 avenue des Champs-Élysées, 75008 Paris, France",
   price_per_day: 240,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  area: 20
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723557583/Bains_Or.jpg")
 
@@ -144,7 +148,8 @@ pool5 = Pool.new(
   pool_type: "Ozone",
   address: "14 route des Vins, 67000 Strasbourg, France",
   price_per_day: 280,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  area: 46
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723557766/Bassin_Saphir.jpg")
 
@@ -157,7 +162,8 @@ pool6 = Pool.new(
   pool_type: "Chlorine",
   address: "45 rue du Château, 33000 Bordeaux, France",
   price_per_day: 120,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  area: 50
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723557955/Chateau_Eau.jpg")
 
@@ -168,9 +174,10 @@ pool7 = Pool.new(
   name: "Palais Bleu",
   overview: "A tranquil oasis located in the heart of the French Riviera, surrounded by the glitz and glamour of Cannes.",
   pool_type: "Salt",
-  address: "12 avenue de la Croisette, 06400 Cannes, France",
+  address: "12 bd de la croisette, 06400 Cannes, France",
   price_per_day: 200,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  area: 55
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558127/Palais_Bleu.jpg")
 
@@ -181,9 +188,10 @@ pool8 = Pool.new(
   name: "Villa Émeraude",
   overview: "Nestled in the Provence countryside, this pool is surrounded by fragrant lavender fields and rolling vineyards.",
   pool_type: "Ozone",
-  address: "22 chemin des Lavandes, 84000 Avignon, France",
+  address: "22 Rue des Lavandes, 84000 Avignon, France",
   price_per_day: 130,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  area: 35
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558382/Villa_Emeraude.jpg")
 
@@ -194,9 +202,10 @@ pool9 = Pool.new(
   name: "Horizon d'Azur",
   overview: "A luxurious infinity pool overlooking the Mediterranean Sea, perfect for those seeking a lavish escape on the Côte d'Azur",
   pool_type: "Salt",
-  address: "10 boulevard de la Croisette, 06000 Nice, France",
+  address: "10 Bd Dubouchage, 06000 Nice, France",
   price_per_day: 110,
-  user_id: users.sample.id
+  user_id: users.sample.id,
+  area: 50
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558549/Horizon_Azur.jpg")
 
@@ -205,9 +214,11 @@ pool9.save!
 
 pool10 = Pool.new(
   name: "Villa de Sol azurée",
-  overview: "Perched on the cliffs of Corsica, offering panoramic views of the turquoise waters of the Mediterranean.", pool_type: "Chlorine",
-  address: "118 rue de la Mer, 20100 Bonifacio, Corsica, France", price_per_day: 85,
-  user_id: users.sample.id
+  overview: "Perched on the cliffs of Corsica, offering panoramic views of the turquoise waters of the Mediterranean.",
+  pool_type: "Chlorine",
+  address: "Foce dell'Edera, 20169 Bonifacio, France", price_per_day: 85,
+  user_id: users.sample.id,
+  area: 60
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558720/Villa_Sol_azuree.jpg")
 
@@ -218,8 +229,10 @@ pool11 = Pool.new(
   name: "Oasis du Désert",
   overview: "An exotic retreat located in the heart of the Camargue, featuring a pool that mimics the natural oasis of the region",
   pool_type: "UV",
-  address: "25 route de l’Oasis, 13460 Les Saintes-Maries-de-la-Mer, France", price_per_day: 110,
-  user_id: users.sample.id
+  address: "Route Du Petit-Rhône D38, 13460 Saintes-Maries-de-la-Mer, France",
+  price_per_day: 110,
+  user_id: users.sample.id,
+  area: 60
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723558885/Oasis_Desert.jpg")
 
@@ -229,12 +242,14 @@ pool11.save!
 pool12 = Pool.new(
   name: "Crique Cachée",
   overview: "A secluded paradise surrounded by pine forests and hidden coves, offering a private and intimate experience on the Brittany coast", pool_type: "UV",
-  address: "5 rue des Goélands, 29660 Carantec, Brittany, France", price_per_day: 160,
-  user_id: users.sample.id
+  address: "20 Rue du Kelenn, 29660 Carantec, France", price_per_day: 160,
+  user_id: users.sample.id,
+  area: 30
 )
 file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723559042/Crique_Cachee.jpg")
 
 pool12.photo.attach(io: file, filename: "Crique_Cachee.jpg", content_type: "image/jpg")
 pool12.save!
+
 
 p Pool.all
