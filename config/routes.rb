@@ -8,13 +8,15 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   root to: "pools#index"
   get "/dashboard", to: "pages#dashboard"
+  get "/mybookings", to: "pages#mybookings"
+
   resources :users, only: [:show]
   resources :pools, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:new, :create]
   end
   patch '/bookings/:id/accept', to: 'bookings#accept'
   patch '/bookings/:id/decline', to: 'bookings#decline'
-
+  resources :bookings, only: [:show]
   # Defines the root path route ("/")
   # root "posts#index"
 end

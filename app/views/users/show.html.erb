@@ -12,11 +12,14 @@
     <%# la classe booking de la div ci-dessous n'est pas encore définie en CSS %>
       <div class="booking m-auto">
         <h3><%= booking.pool.name %></h3>
-        <% if booking.pool.photo.attached? %>
-          <%= cl_image_tag booking.pool.photo.key, class:'img-fluid mx-auto my-3 rounded-5', width: '500', crop: :fill %>
-        <% else %>
-          <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto my-3 rounded-5', alt: "Pool picture", width: '500' %>
+        <%= link_to booking_path(booking) do %>
+          <% if booking.pool.photo.attached? %>
+              <%= cl_image_tag booking.pool.photo.key, class:'img-fluid mx-auto my-3 rounded-5', width: '500', crop: :fill %>
+          <% else %>
+            <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto my-3 rounded-5', alt: "Pool picture", width: '500' %>
+          <% end %>
         <% end %>
+
         <ul style="list-style-type: none;padding-inline-start:0px;">
           <li>Status: <%= booking.status %></li>
           <li>Address: <%= booking.pool.address %></li>

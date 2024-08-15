@@ -1,5 +1,13 @@
 class BookingsController < ApplicationController
 
+  def index
+    @bookings = Booking.all
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     @pool = Pool.find(params[:pool_id])
     @booking = Booking.new(booking_params)
