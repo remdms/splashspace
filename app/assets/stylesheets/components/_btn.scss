@@ -43,3 +43,24 @@
     }
   }
 }
+
+.container-btn{
+  color: red;
+}
+.black-rounded-btn{
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  width: 90px;
+  height: 25px;
+  justify-content: center;
+  margin-left: 480px;
+ &:hover {
+    transform: translateY(-5px);
+    background-color: #F4F4F4;
+    color: black;
+  }
+}
