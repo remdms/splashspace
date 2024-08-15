@@ -2,12 +2,6 @@
 
 <div class="container-fluid text-center mt-3">
   <h1>MY ACCOUNT</h1>
-  <div class="d-flex justify-content-center">
-    <%= link_to 'Back', pools_path, class: 'gray-rounded-btn mt-3' %>
-    <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class:'text-decoration-none' do %>
-      <div class="gray-rounded-btn mt-3">Log Out</div>
-    <% end %>
-  </div>
   <hr>
   <h2>MY BOOKINGS</h2>
   <div class="d-flex flex-wrap">

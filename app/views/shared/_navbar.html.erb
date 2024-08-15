@@ -1,21 +1,70 @@
-<nav class="navbar sticky-top">
+<nav class="navbar sticky-top" data-controller="navbar-scroll-downl" data-target="navbar" data-action="scroll@window->navbar-scroll-downl#handleScroll">
   <div class="navbar__left">
-    <%= link_to root_path, class: "icon-link" do %>
-      <i class="fas fa-sliders-h"></i>
+    <%= link_to :back, class: "icon-link back-button" do %>
+      <i class="fa-solid fa-angle-left"></i>
     <% end %>
   </div>
 
   <div class="navbar__center">
-    <%= link_to "SPLASHSPACE", root_path, class: "nav-title" %>
+    <% if params[:controller] == 'users' && params[:action] == 'show' %>
+          <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class:'text-decoration-none' do %>
+            <div class="black-rounded-btn d-flex">Log Out</div>
+          <% end %>
+    <% end %>
   </div>
 
   <div class="navbar__right">
-    <% if user_signed_in? && current_user.photo.attached? %>
-      <%= link_to user_path(current_user), class: "profile-link" do %>
-        <%= cl_image_tag current_user.photo.key, class: "avatar-rounded" %>
-      <% end %>
-    <% else %>
-      <%= image_tag("default-profile-picture.png", class: "avatar-rounded") %>
+    <%= link_to root_path, class: "icon-link" do %>
+      <i class="fas fa-sliders-h"></i>
     <% end %>
   </div>
+</nav>
+
+<nav class="navbar-bottom">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <%= link_to root_path, class: "nav-link" do %>
+        <i class="fas fa-search <%= 'active' if params[:controller] == 'pools' && params[:action] == 'index' %>"></i>
+        <span class="<%= 'active' if params[:controller] == 'pools' && params[:action] == 'index' %>">Explorer</span>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="fas fa-heart"></i>
+        <span>Favorites</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <%= image_tag("icon-logo.png", class:"nav-link logo")%>
+        <span>Pools</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="fas fa-comment"></i>
+        <span>Messages</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <div class="nav-link">
+        <% if user_signed_in? && current_user.photo.attached? %>
+          <%= link_to user_path(current_user), class: "profile-link" do %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar-rounded mb-1" %>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session, class: "profile-link" do %>
+            <%= image_tag("default-profile-picture.png", class: "avatar-rounded mb-1") %>
+          <% end %>
+        <% end %>
+          <span class="<%= 'active' if params[:controller] == 'users' && params[:action] == 'show' %>">
+            <% if user_signed_in?%>
+              Profile
+            <% else %>
+              Connexion
+            <% end %>
+          </span>
+      </div>
+    </li>
+  </ul>
 </nav>
