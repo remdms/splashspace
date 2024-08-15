@@ -12,28 +12,6 @@
       object-fit: cover;
     }
   }
-
-  .explore-button {
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    a {
-      background-color: black;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 25px;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-decoration: none;
-      font-size: medium;
-
-      &:hover {
-        background-color: #333;
-      }
-    }
-  }
 }
 
 .little-index-section {
@@ -70,8 +48,6 @@
     }
   }
 }
-
-
 
 .pools-list {
   display: flex;
