@@ -251,4 +251,5 @@ file = URI.open("https://res.cloudinary.com/dsxqbci59/image/upload/v1723559042/C
 pool12.photo.attach(io: file, filename: "Crique_Cachee.jpg", content_type: "image/jpg")
 pool12.save!
 
+
 p Pool.all
