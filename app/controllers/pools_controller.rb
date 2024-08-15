@@ -3,6 +3,14 @@ class PoolsController < ApplicationController
   before_action :set_pool, only: [:show]
   def index
     @pools = Pool.all
+    @markers = @pools.geocoded.map do |pool|
+      {
+        lat: pool.latitude,
+        lng: pool.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { pool: pool }),
+        marker_html: render_to_string(partial: "map_marker", locals: { pool: pool })
+      }
+    end
   end
 
   def show

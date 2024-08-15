@@ -1,0 +1,59 @@
+.mapboxgl-popup {
+  width: 90vw;
+}
+
+.mapboxgl-popup-content {
+  text-align: left;
+  border-radius: 1rem;
+  background-color: #F4F4F4;
+  padding: 0;
+
+  img {
+    border-radius: 1rem 1rem 0 0;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.mapboxgl-popup-close-button {
+  background-color: #F4F4F4;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.mapboxgl-popup-tip {
+  display: none;
+}
+
+.pool-thumbnail-container {
+  img {
+    object-fit: cover;
+    height: 200px;
+  }
+}
+
+.map-info-window-text {
+  padding-left: 0.5rem;
+  p {
+    margin-bottom: 0.3rem;
+  }
+}
+
+.map-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  background-color: #F4F4F4;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.5);
+  border: lightgrey 0.1rem solid;
+}
