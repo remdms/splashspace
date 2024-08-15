@@ -6,6 +6,7 @@
 @import 'footer';
 @import 'cards';
 @import 'icons';
+@import 'gray-rounded-btn';
 
 .front-picture-section {
   position: relative;
@@ -40,6 +41,7 @@
 
       &:hover {
         background-color: #333;
+        transform: translateY(-5px);
       }
     }
   }
