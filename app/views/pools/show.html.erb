@@ -1,12 +1,13 @@
 <%= render 'shared/navbar' %>
 
 <div class="container-fluid">
-  <%# Si une photo de pool existe on l'affiche sinon on affiche le placeholder%>
-  <% if @pool.photo.attached? %>
-    <%= cl_image_tag @pool.photo.key, class:'img-fluid mx-auto my-3 rounded-5', width: '500', crop: :fill %>
-  <% else %>
-    <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto my-3 rounded-5', alt: "Pool picture", width: '500' %>
-  <% end %>
+  <div class="d-flex justify-content-center">
+    <% if @pool.photo.attached? %>
+      <%= cl_image_tag @pool.photo.key, class:'img-fluid mx-auto my-3 rounded-5', width: '500', crop: :fill %>
+    <% else %>
+      <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto my-3 rounded-5', alt: "Pool picture", width: '500' %>
+    <% end %>
+  </div>
 
   <h2 class="secondary-title"><%= @pool.name.upcase %></h2>
   <hr>
@@ -31,11 +32,11 @@
   <p class="text-center">Hosted by <%= @pool.user.first_name %></p>
 
   <%# Si une photo de user existe on l'affiche sinon on affiche le placeholder%>
-  <div class="owner user-pic-square mx-auto my-3">
+  <div class="avatar-square mx-auto my-3">
     <% if @pool.user.photo.attached? %>
-        <%= cl_image_tag @pool.user.photo.key, class:'img-fluid', size: '164', crop: :fill %>
+        <%= cl_image_tag @pool.user.photo.key, class:'img', size: '164', crop: :fill %>
       <% else %>
-        <%= image_tag 'placeholder-image.jpg', class:'img-fluid', alt: "Pool picture" %>
+        <%= image_tag 'placeholder-image.jpg', class:'img', alt: "Pool picture" %>
       <% end %>
   </div>
 
