@@ -12,10 +12,10 @@
   <div class="navbar__right">
     <% if user_signed_in? && current_user.photo.attached? %>
       <%= link_to user_path(current_user), class: "profile-link" do %>
-        <%= cl_image_tag current_user.photo.key, class: "profile-picture" %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-rounded" %>
       <% end %>
     <% else %>
-      <%= image_tag("default-profile-picture.png", class: "profile-picture") %>
+      <%= image_tag("default-profile-picture.png", class: "avatar-rounded") %>
     <% end %>
   </div>
 </nav>
