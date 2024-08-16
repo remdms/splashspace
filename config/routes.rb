@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   resources :pools, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:new, :create]
   end
-  patch '/bookings/:id/accept', to: 'bookings#accept'
-  patch '/bookings/:id/decline', to: 'bookings#decline'
+  patch '/bookings/:id/accept', to: 'bookings#accept', as: :accept_booking
+  patch '/bookings/:id/decline', to: 'bookings#decline', as: :decline_booking
+  patch '/bookings/:id/cancel', to: 'bookings#cancel', as: :cancel_booking
   resources :bookings, only: [:show]
   # Defines the root path route ("/")
   # root "posts#index"

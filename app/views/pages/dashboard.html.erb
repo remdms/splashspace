@@ -5,26 +5,40 @@
   <hr>
   <h2>BOOKING REQUESTS</h2>
   <div class="d-flex flex-wrap">
-    <% @user.booking_requests.each do |request| %>
+    <% @user.booking_requests.each do |booking| %>
     <%# la classe booking de la div ci-dessous n'est pas encore définie en CSS %>
     <%# lien à mettre à jour avec la bonne route %>
       <div class="booking-card m-auto">
-        <%= link_to "#", class:"text-decoration-none" do %>
-          <h3><%= request.pool.name %></h3>
-          <% if request.pool.photo.attached? %>
-            <%= cl_image_tag request.pool.photo.key, class:'img-fluid mx-auto my-3 rounded-5', width: '500', crop: :fill %>
+        <%= link_to '#', class:"text-decoration-none" do %>
+          <h3><%= booking.pool.name %></h3>
+          <% if booking.pool.photo.attached? %>
+            <%= cl_image_tag booking.pool.photo.key, class:'img-fluid mx-auto my-3 rounded-5', width: '500', crop: :fill %>
           <% else %>
             <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto my-3 rounded-5', alt: "Pool picture", width: '500' %>
           <% end %>
           <ul style="list-style-type: none;padding-inline-start:0px;">
-            <li>Status: <%= request.status %></li>
-            <li>Price: €<%= request.total_price %></li>
-            <li>Starts: <%= request.start_date.strftime("%d/%m/%Y") %></li>
-            <li>Ends: <%= request.end_date.strftime("%d/%m/%Y") %></li>
-            <li>User: <%= request.user.pseudo %></li>
+            <li>Status: <%= booking.status %></li>
+            <li>Price: €<%= booking.total_price %></li>
+            <li>Starts: <%= booking.start_date.strftime("%d/%m/%Y") %></li>
+            <li>Ends: <%= booking.end_date.strftime("%d/%m/%Y") %></li>
+            <li>User: <%= booking.user.pseudo %></li>
           </ul>
-          <hr>
         <% end %>
+        <% if booking.status == 'pending' %>
+          <div class="d-flex justify-content-evenly">
+            <%= link_to accept_booking_path(booking), data: { turbo_method: :patch } do %>
+              <div class="btn btn-outline-primary"><i class="fa-solid fa-check"></i> Accept</div>
+            <% end %>
+            <%= link_to decline_booking_path(booking), data: { turbo_method: :patch } do %>
+              <div class="btn btn-outline-danger"><i class="fa-solid fa-xmark"></i> Decline</div>
+            <% end %>
+          </div>
+        <% elsif booking.status == 'confirmed' %>
+            <%= link_to cancel_booking_path(booking), data: { turbo_method: :patch } do %>
+              <div class="btn btn-outline-danger m-auto"><i class="fa-solid fa-xmark"></i> Cancel</div>
+            <% end %>
+        <% end %>
+        <hr>
       </div>
     <% end %>
   </div>
@@ -57,7 +71,7 @@
     <% end %>
   </div>
   <h2>PROFILE</h2>
-  <ul style="list-style-type: none;padding-inline-start:0px;">
+  <ul style="list-style-type: none;padding-inline-start:0px;padding-bottom:60px;">
     <li>Pseudo: <%= @user.pseudo %></li>
     <li>First name: <%= @user.first_name %></li>
     <li>Last name: <%= @user.last_name %></li>
