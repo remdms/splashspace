@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="navbar-scroll-downl"
 export default class extends Controller {
-  static targets = ["navbar"]
+  static targets = ["navbar", "searchBar", "formSearchBar"]
 
   connect() {
   }
@@ -22,7 +22,9 @@ export default class extends Controller {
       opacity = Math.max(currentScrollPosition / maxScroll, 1)
     }
 
-    this.element.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`
+    this.navbarTarget.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`
+    this.searchBarTarget.style.opacity = opacity
+
     this.lastScrollPosition = currentScrollPosition
   }
 }

@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top" data-controller="navbar-scroll-downl" data-target="navbar" data-action="scroll@window->navbar-scroll-downl#handleScroll">
+<nav class="navbar sticky-top" data-controller="navbar-scroll-downl" data-navbar-scroll-downl-target="navbar" data-action="scroll@window->navbar-scroll-downl#handleScroll">
   <div class="navbar__left">
     <%= link_to :back, class: "icon-link back-button" do %>
       <i class="fa-solid fa-angle-left"></i>
@@ -22,6 +22,16 @@
     <% end %>
   <% end %>
   </div>
+
+  <% if params[:controller] == 'pools' && params[:action] == 'index' %>
+    <div class="search-bar" data-navbar-scroll-downl-target="searchBar" >
+      <%= form_with url: pools_path, method: :get, local: true, class: "search-form", data:{ navbar_scroll_downl_target:"formSearchBar" } do %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search pools...", class: "search-input" %>
+        <%= submit_tag "Search", class: "search-button" %>
+      <% end %>
+    </div>
+  <% end %>
+
 </nav>
 
 <nav class="navbar-bottom">
