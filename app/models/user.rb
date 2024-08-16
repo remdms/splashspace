@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :pools
   has_many :bookings
+  has_many :saved_pools, dependent: :destroy
+  
   validates :pseudo, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
   validates :first_name, presence: true
   validates :last_name, presence: true

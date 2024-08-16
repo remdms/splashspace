@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   resources :pools, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:new, :create]
   end
+  resources :pools do
+    resources :saved_pools, only: [:create, :destroy]
+  end
+  resources :saved_pools, only: [:index]
+
   patch '/bookings/:id/accept', to: 'bookings#accept'
   patch '/bookings/:id/decline', to: 'bookings#decline'
 

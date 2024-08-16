@@ -64,3 +64,48 @@
     color: black;
   }
 }
+
+.gray-rounded-btn-hover-red {
+
+  background-color: lightgray;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+ &:hover {
+  transform: translateY(-5px);
+  background-color: #ff6969;
+  color: black;
+  }
+}
+
+
+.gray-rounded-btn-hover-green {
+
+  background-color: lightgray;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+  &:hover {
+  transform: translateY(-5px);
+  background-color: #77f763;
+  color: black;
+  }
+}
