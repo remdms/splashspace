@@ -1,4 +1,4 @@
-<div class="pool-card">
+<div class="pool-card" id="<%= pool.id %>">
   <%= link_to pool_path(pool), class:"text-decoration-none" do %>
     <% if pool.photo.attached? %>
       <%= cl_image_tag pool.photo.key, class:'img-fluid mx-auto', width: '500', crop: :fill %>
@@ -8,12 +8,16 @@
     <div class="pool-details">
       <h3><%= pool.name %></h3>
       <p><%= pool.overview %></p>
-      <p class="price d-flex justify-content-end"><%= pool.price_per_day %>€ per day</p>
-      <% if current_user.saved_pools.exists?(pool: pool) %>
-        <%= link_to 'Unsave',  pool_saved_pool_path(pool, current_user.saved_pools.find_by(pool_id: pool.id)), data: { turbo_method: :delete }, class: "gray-rounded-btn-hover-red" %>
-      <% else %>
-        <%= link_to 'Save', pool_saved_pools_path(pool), data: { turbo_method: :post}, class: "gray-rounded-btn-hover-green" %>
-      <% end %>
+      <div class="d-flex justify-content-between">
+        <p class="price"><%= pool.price_per_day %>€ per day</p>
+        <div>
+          <% if current_user.saved_pools.exists?(pool: pool) %>
+            <%= link_to 'Unsave',  pool_saved_pool_path(pool, current_user.saved_pools.find_by(pool_id: pool.id)), data: { turbo_method: :delete }, class: "gray-rounded-btn-hover-red" %>
+          <% else %>
+            <%= link_to 'Save', pool_saved_pools_path(pool), data: { turbo_method: :post}, class: "gray-rounded-btn-hover-green" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
