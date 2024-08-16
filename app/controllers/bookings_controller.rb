@@ -16,11 +16,34 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     @booking.total_price = (@booking.end_date.day - @booking.start_date.day) * @booking.pool.price_per_day
     if @booking.save
-      redirect_to dashboard_path, notice: "Your booking has been created"
+      redirect_to booking_path(@booking), notice: "Your booking has been created"
     else
       render "pools/show", status: :unprocessable_entity
     end
   end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = 'confirmed'
+    @booking.save
+    redirect_to dashboard_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = 'declined'
+    @booking.save
+    redirect_to dashboard_path
+  end
+
+  def cancel
+    @booking = Booking.find(params[:id])
+    @booking.status = 'cancelled'
+    @booking.save
+    redirect_to dashboard_path
+  end
+
+  private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
