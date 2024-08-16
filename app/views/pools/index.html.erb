@@ -45,8 +45,9 @@
   <%# bouton pour remonter à la map %>
 </div>
 
-<button id='gotomap-button' class="btn btn-dark btn-lg" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Map <i class="fa-solid fa-map"></i></button>
-
+<div class="fixed-button" data-controller="scroll-button">
+  <button id='gotomap-button' class="btn btn-dark btn-lg" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Map <i class="fa-solid fa-map"></i></button>
+</div>
 
 
 <%= render 'shared/footer' %>
