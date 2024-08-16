@@ -1,0 +1,15 @@
+<%= link_to pool_path(pool) do %>
+  <%# Pool photo %>
+  <div class="pool-thumbnail-container">
+    <% if pool.photo.attached? %>
+      <%= cl_image_tag pool.photo.key, class:'img-fluid mx-auto mb-1', width: '500', crop: :fill %>
+    <% else %>
+      <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto mb-1', alt: "Pool picture", width: '500' %>
+    <% end %>
+  </div>
+  <%# /pool photo %>
+  <div class="map-info-window-text">
+    <h6><%= pool.name %></h6>
+    <p><strong>€ <%= pool.price_per_day %> </strong> per day</p>
+  </div>
+<% end %>

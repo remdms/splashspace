@@ -1,37 +1,52 @@
-  <%= render 'shared/navbar' %>
+<%= render 'shared/navbar' %>
 <!-- j'appelle la partial navbar-->
 
+<div data-controller='scroll-to-cards'>
+  <%# Map %>
+  <div id="homepage-map"
+    style="width: 100%; height: 70vh;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <%# /Map %>
 
-<div class="front-picture-section">
-  <div class="front-picture-image">
-    <%= image_tag("default-front-picture.jpeg", class: "img-fluid") %>
-    <div class="explore-button">
-      <a href="<%= "#" %>" class="btn btn-dark btn-lg">Explore Pools</a>
+  <div id="scrollable-section" class="rounded-top-5">
+  <%# This section overflows over the map %>
+    <div data-scroll-to-cards-target="section" class="front-picture-section">
+      <div class="front-picture-image">
+        <%= image_tag("default-front-picture.jpeg", class: "img-fluid rounded-top-5") %>
+        <div class="explore-button">
+          <a href="#" class="btn btn-dark btn-lg">Explore Pools</a>
+        </div>
+      </div>
+    </div>
+    <div class="little-index-section text-center">
+      <h1 class="little-index-title mb-0">S P L A S H S P A C E</h1>
+      <div class="little-index-subtitle">
+        Unwind, One Pool at a Time
+      </div>
+      <div class="little-index-filters">
+        <a href="#" class="little-index-filter">All</a>
+        <a href="#" class="little-index-filter">Iconic</a>
+        <a href="#" class="little-index-filter">Wow!</a>
+        <a href="#" class="little-index-filter">With a view</a>
+        <a href="#" class="little-index-filter">Trendy</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="pools-list">
+        <% @pools.each do |pool| %>
+          <%= render 'shared/pool-card', pool: pool %>
+        <% end %>
+      </div>
     </div>
   </div>
+  <%# bouton pour remonter à la map %>
 </div>
 
-<div class="little-index-section text-center">
-  <h1 class="little-index-title mb-0">S P L A S H S P A C E</h1>
-  <div class="little-index-subtitle">
-    Unwind, One Pool at a Time
-  </div>
-  <div class="little-index-filters">
-    <a href="#" class="little-index-filter">All</a>
-    <a href="#" class="little-index-filter">Iconic</a>
-    <a href="#" class="little-index-filter">Wow!</a>
-    <a href="#" class="little-index-filter">With a view</a>
-    <a href="#" class="little-index-filter">Trendy</a>
-  </div>
-</div>
+<button id='gotomap-button' class="btn btn-dark btn-lg" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Map <i class="fa-solid fa-map"></i></button>
 
-<div class="container">
-  <div class="pools-list">
-    <% @pools.each do |pool| %>
-      <%= render 'shared/pool-card', pool: pool %>
-    <% end %>
-  </div>
-</div>
 
 
 <%= render 'shared/footer' %>

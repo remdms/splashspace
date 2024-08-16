@@ -44,6 +44,17 @@
   }
 }
 
+#gotomap-button {
+  position: fixed;
+  z-index: 100;
+  top: 88%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.2s ease;
+}
+
 .container-btn{
   color: red;
 }
