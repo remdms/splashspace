@@ -1,0 +1,16 @@
+  <%= render 'shared/navbar' %>
+<!-- j'appelle la partial navbar-->
+<h1 class="text-centered">My Saved Pools</h1>
+  <hr>
+
+<div>
+  <div class="fav-list d-flex flex-wrap">
+    <% @saved_pools.each do |saved_pool| %>
+      <%= render 'saved_pools/partials/saved_pool_card', pool: saved_pool.pool %>
+      <!-- j'appelle la partial saved_poil_card-->
+    <% end %>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>
+<!-- j'appelle la partial footer-->

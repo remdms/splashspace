@@ -13,10 +13,13 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :pools, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:new, :create]
+    resources :saved_pools, only: [:create, :destroy]
   end
   patch '/bookings/:id/accept', to: 'bookings#accept', as: :accept_booking
   patch '/bookings/:id/decline', to: 'bookings#decline', as: :decline_booking
   patch '/bookings/:id/cancel', to: 'bookings#cancel', as: :cancel_booking
+
+  resources :saved_pools, only: [:index]
   resources :bookings, only: [:show]
   # Defines the root path route ("/")
   # root "posts#index"

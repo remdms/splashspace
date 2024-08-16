@@ -9,7 +9,14 @@
     <% end %>
   </div>
 
-  <h2 class="secondary-title"><%= @pool.name.upcase %></h2>
+  <h2 class="secondary-title text-center"><%= @pool.name.upcase %></h2>
+    <div class="d-flex justify-content-center">
+      <% if current_user.saved_pools.exists?(pool: @pool) %>
+        <%= link_to 'Unsave', pool_saved_pool_path(@pool, current_user.saved_pools.find_by(pool_id: @pool.id)), data: { turbo_method: :delete }, class: "gray-large-rounded-btn-hover-red" %>
+      <% else %>
+        <%= link_to 'Save', pool_saved_pools_path(@pool), data: { turbo_method: :post }, class: "gray-large-rounded-btn-hover-green" %>
+      <% end %>
+    </div>
   <hr>
   <p>Location: <%= @pool.address %></p>
   <p>Rating:</p>
