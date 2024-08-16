@@ -1,1 +1,28 @@
-<p>Hello from my bookings</p>
+<%= render 'shared/navbar' %>
+
+<div class="container-fluid text-center mt-3">
+  <h2>MY BOOKINGS</h2>
+  <div class="d-flex flex-wrap">
+    <% @bookings.each do |booking| %>
+    <%# la classe booking de la div ci-dessous n'est pas encore définie en CSS %>
+    <%# lien à mettre à jour avec la bonne route %>
+      <div class="booking-card m-auto">
+        <%= link_to "#", class:"text-decoration-none" do %>
+          <h3><%= booking.pool.name %></h3>
+          <% if booking.pool.photo.attached? %>
+            <%= cl_image_tag booking.pool.photo.key, class:'img-fluid mx-auto my-3 rounded-5', width: '500', crop: :fill %>
+          <% else %>
+            <%= image_tag 'placeholder-image.jpg', class:'img-fluid mx-auto my-3 rounded-5', alt: "Pool picture", width: '500' %>
+          <% end %>
+          <ul style="list-style-type: none;padding-inline-start:0px;">
+            <li>Status: <%= booking.status %></li>
+            <li>Price: €<%= booking.total_price %></li>
+            <li>Starts: <%= booking.start_date.strftime("%d/%m/%Y") %></li>
+            <li>Ends: <%= booking.end_date.strftime("%d/%m/%Y") %></li>
+          </ul>
+          <hr>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
