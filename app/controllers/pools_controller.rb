@@ -25,7 +25,7 @@ class PoolsController < ApplicationController
     @pool = Pool.new(pool_params)
     @pool.user = current_user
     if @pool.save
-      redirect_to pool_path(@pool)
+      redirect_to saved_pools(@pool)
     else
       render :new, status: :unprocessable_entity
     end

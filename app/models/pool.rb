@@ -1,6 +1,8 @@
 class Pool < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :saved_pools, dependent: :destroy
+  has_many :saved_by_users, through: :saved_pools, source: :user
   # ligne suivante à decommenter si nécessaire
   # has_many :users, through: :bookings
 
