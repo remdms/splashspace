@@ -3,7 +3,7 @@
   padding: 10px 15px;
   background-color: #fff;
   transition: background-color 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 1s ease-in-out;
 
   .navbar__left {
     display: flex;
@@ -24,6 +24,41 @@
     &.back-button {
       display: flex;
       align-items: center;
+    }
+  }
+
+  .search-bar {
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    transition: opacity 1s ease-in-out;
+
+    .search-form {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px 0 0 10px;
+    }
+
+    .search-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: 1px solid #adabab;
+      border-left: none;
+      border-radius: 0 5px 5px 0;
+      background-color: light-gray;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(94, 94, 94);
+      }
     }
   }
 }
