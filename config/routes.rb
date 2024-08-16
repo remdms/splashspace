@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
   root to: "pools#index"
+  get '/dashboard', to: 'pages#dashboard', as: :dashboard
+  get "/mybookings", to: "pages#mybookings"
+
   resources :users, only: [:show]
   resources :pools, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:new, :create]
@@ -18,7 +21,7 @@ Rails.application.routes.draw do
 
   patch '/bookings/:id/accept', to: 'bookings#accept'
   patch '/bookings/:id/decline', to: 'bookings#decline'
-
+  resources :bookings, only: [:show]
   # Defines the root path route ("/")
   # root "posts#index"
 end

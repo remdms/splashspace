@@ -8,9 +8,12 @@ class Pool < ApplicationRecord
 
   # on lie une photo Active Storage (ajout Remi)
   has_one_attached :photo
-
+  # Validations
   validates :address, presence: true
   validates :name, presence: true, length: { maximum: 100 }
   validates :price_per_day, presence: true, numericality: { greater_than: 0 }
   validates :overview, length: { maximum: 1500 }
+  # Geocoding
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

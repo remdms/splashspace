@@ -1,5 +1,13 @@
 class BookingsController < ApplicationController
 
+  def index
+    @bookings = Booking.all
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     @pool = Pool.find(params[:pool_id])
     @booking = Booking.new(booking_params)
@@ -8,8 +16,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     @booking.total_price = (@booking.end_date.day - @booking.start_date.day) * @booking.pool.price_per_day
     if @booking.save
-      # TODO change path to user show
-      redirect_to user_path(current_user)
+      redirect_to dashboard_path, notice: "Your booking has been created"
     else
       render "pools/show", status: :unprocessable_entity
     end

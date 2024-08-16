@@ -6,7 +6,10 @@ class User < ApplicationRecord
   has_many :pools
   has_many :bookings
   has_many :saved_pools, dependent: :destroy
-  
+
+  # On peut définir des has-many custom pour faire des raccourcis
+  has_many :booking_requests, through: :pools, source: :bookings
+
   validates :pseudo, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
   validates :first_name, presence: true
   validates :last_name, presence: true

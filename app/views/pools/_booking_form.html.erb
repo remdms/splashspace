@@ -1,6 +1,6 @@
 <%= simple_form_for [pool, booking], html: { data: { controller: "flatpickr" } } do |f| %>
   <div>
-    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: 'tartDateInput' } }, label: false, placeholder: "Start date..."%>
+    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: 'startDateInput' } }, label: false, placeholder: "Start date..."%>
     <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: 'endDateInput' } }, label: false, placeholder: "End date..."%>
     <p class='mb-0'>Total price =</p>
   </div>

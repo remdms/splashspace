@@ -6,17 +6,21 @@
   </div>
 
   <div class="navbar__center">
-    <% if params[:controller] == 'users' && params[:action] == 'show' %>
-          <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class:'text-decoration-none' do %>
-            <div class="black-rounded-btn d-flex">Log Out</div>
-          <% end %>
-    <% end %>
   </div>
 
   <div class="navbar__right">
+  <%# le bouton logout ne s'affiche que dans le dashboard %>
+    <% if params[:controller] == 'pages' && params[:action] == 'dashboard' %>
+        <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class:'text-decoration-none' do %>
+          <div class="black-rounded-btn d-flex">Log Out</div>
+        <% end %>
+    <% end %>
+  <%# Les sliders ne s'affichent que sur la page d'accueil %>
+  <% if params[:controller] == 'pools' && params[:action] == 'index' %>
     <%= link_to root_path, class: "icon-link" do %>
       <i class="fas fa-sliders-h"></i>
     <% end %>
+  <% end %>
   </div>
 </nav>
 
@@ -49,7 +53,7 @@
     <li class="nav-item">
       <div class="nav-link">
         <% if user_signed_in? && current_user.photo.attached? %>
-          <%= link_to user_path(current_user), class: "profile-link" do %>
+          <%= link_to dashboard_path, class: "profile-link" do %>
             <%= cl_image_tag current_user.photo.key, class: "avatar-rounded mb-1" %>
           <% end %>
         <% else %>
@@ -57,7 +61,7 @@
             <%= image_tag("default-profile-picture.png", class: "avatar-rounded mb-1") %>
           <% end %>
         <% end %>
-          <span class="<%= 'active' if params[:controller] == 'users' && params[:action] == 'show' %>">
+          <span class="<%= 'active' if params[:controller] == 'pages' && params[:action] == 'dashboard' %>">
             <% if user_signed_in?%>
               Profile
             <% else %>

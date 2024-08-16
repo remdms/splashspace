@@ -65,6 +65,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_15_143804) do
     t.integer "area"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_pools_on_user_id"
   end
 
