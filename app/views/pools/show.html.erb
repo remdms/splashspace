@@ -19,19 +19,20 @@
     </div>
   <hr>
   <p>Location: <%= @pool.address %></p>
-  <p>Rating:</p>
+  <p>Rating: ★★★★☆</p>
   <p>Price: €<%= @pool.price_per_day %> per person per day</p>
   <h2 class="secondary-title mt-3">DESCRIPTION</h2>
   <hr>
   <p><%= @pool.overview %></p>
 
+  <%# On affiche la possibilité de réserver et le nom du user que si ce n'est pas le proprio %>
+  <% if @pool.user != current_user %>
   <div class="container-fluid border p-3 mb-2">
     <div class="booking-card">
     <%# Formulaire non mis en forme, methode bookings#create non définie %>
     <%= render 'pools/booking_form', pool: @pool, booking: @booking %>
     </div>
   </div>
-
 
 
 
@@ -46,6 +47,7 @@
         <%= image_tag 'placeholder-image.jpg', class:'img', alt: "Pool picture" %>
       <% end %>
   </div>
+  <% end %>
 
 </div>
 
