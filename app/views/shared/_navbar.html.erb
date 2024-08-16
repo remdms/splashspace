@@ -67,7 +67,7 @@
             <%= cl_image_tag current_user.photo.key, class: "avatar-rounded mb-1" %>
           <% end %>
         <% else %>
-          <%= link_to new_user_session, class: "profile-link" do %>
+          <%= link_to new_user_session_path, class: "profile-link" do %>
             <%= image_tag("default-profile-picture.png", class: "avatar-rounded mb-1") %>
           <% end %>
         <% end %>

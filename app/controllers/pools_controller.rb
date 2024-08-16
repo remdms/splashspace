@@ -1,6 +1,8 @@
 class PoolsController < ApplicationController
   # skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_pool, only: [:show]
+
   def index
     if params[:query].present?
       @pools = Pool.search_by_name_and_overview(params[:query])
