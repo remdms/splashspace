@@ -55,34 +55,6 @@
     </div>
   <% end %>
 
-  <hr>
-
-  <div>
-    <h2 class="mt-5">MY POOLS</h2>
-    <% if current_user.pools.any? %>
-      <div class="d-flex flex-wrap">
-        <% current_user.pools.each do |pool| %>
-          <div class="m-auto">
-            <%= link_to pool_path(pool) do %>
-              <% if pool.photo.attached? %>
-                <%= cl_image_tag pool.photo.key, class: 'img-fluid mx-auto my-3 rounded-5', width: '500', height: '300', crop: :fill %>
-              <% else %>
-                <%= image_tag 'placeholder-image.jpg', class: 'img-fluid mx-auto my-3 rounded-5', alt: "Pool picture", width: '500', height: '300' %>
-              <% end %>
-            <% end %>
-            <h4><%= pool.name.upcase %></h4>
-            <p>Location: <%= pool.address %></p>
-            <p>Rating: ★★★★☆</p>
-            <p>Price: €<%= pool.price_per_day %> per person per day</p>
-            <hr>
-          </div>
-        <% end %>
-      </div>
-    <% else %>
-      <p>No pools available.</p>
-    <% end %>
-  </div>
-
   <h2 class="mt-5">PROFILE</h2>
   <ul style="list-style-type: none; padding-inline-start: 0;">
     <li><strong>Pseudo:</strong> <%= current_user.pseudo %></li>
