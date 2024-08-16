@@ -1,0 +1,66 @@
+<%= render 'shared/navbar' %>
+
+<div class="container text-center mt-4">
+  <h1>MY BOOKING</h1>
+  <hr>
+  <h2 class="mb-3">LAST ONE BOOKED</h2>
+
+  <% if @booking.nil? %>
+    <p>No bookings found.</p>
+  <% else %>
+    <div class="booking-detail m-auto">
+      <h3 class="mb-4"><%= @booking.pool.name %></h3>
+
+      <%= link_to booking_path(@booking) do %>
+        <% if @booking.pool.photo.attached? %>
+          <%= cl_image_tag @booking.pool.photo.key, class: 'img-fluid mx-auto my-3 rounded-5', width: '600', height: '400', crop: :fill %>
+        <% else %>
+          <%= image_tag 'placeholder-image.jpg', class: 'img-fluid mx-auto my-3 rounded-5', alt: "Pool picture", width: '600', height: '400' %>
+        <% end %>
+      <% end %>
+
+      <div class="row mt-4">
+        <div class="col">
+          <strong>Arrival:</strong>
+          <p><%= @booking.start_date.strftime('%B %d, %Y') %></p>
+        </div>
+        <div class="col">
+          <strong>Departure:</strong>
+          <p><%= @booking.end_date.strftime('%B %d, %Y') %></p>
+        </div>
+      </div>
+
+      <div class="my-4">
+        <h4>My Host</h4>
+        <div class="media">
+          <% if @booking.pool.user.photo.attached? %>
+            <%= cl_image_tag @booking.pool.user.photo.key, transformation: { width: 50, height: 50, crop: "thumb", gravity: "face" }, class: "mr-3 rounded-circle", alt: "Host Image" %>
+          <% else %>
+            <%= image_tag 'placeholder-user.png', class: "mr-3 rounded-circle", alt: "Host Image", width: 50, height: 50 %>
+          <% end %>
+          <div class="media-body">
+            <h5 class="mt-0"><%= "#{@booking.pool.user.first_name} #{@booking.pool.user.last_name}" %></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-4">
+        <h4>Details</h4>
+        <ul style="list-style-type: none; padding-inline-start: 0;">
+          <li><strong>Status:</strong> <%= @booking.status %></li>
+          <li><strong>Address:</strong> <%= @booking.pool.address %></li>
+          <li><strong>Total Price:</strong> €<%= @booking.total_price %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <h2 class="mt-5">PROFILE</h2>
+  <ul style="list-style-type: none; padding-inline-start: 0;">
+    <li><strong>Pseudo:</strong> <%= current_user.pseudo %></li>
+    <li><strong>First name:</strong> <%= current_user.first_name %></li>
+    <li><strong>Last name:</strong> <%= current_user.last_name %></li>
+    <li><strong>Email:</strong> <%= current_user.email %></li>
+    <li><strong>Joined:</strong> <%= current_user.created_at.strftime("%d/%m/%Y") %></li>
+  </ul>
+</div>
